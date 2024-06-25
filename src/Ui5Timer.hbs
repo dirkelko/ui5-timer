@@ -1,0 +1,74 @@
+<div class="root" >
+    <svg id="svgArea" class="svgArea" viewBox="{{vbox}}">
+        <circle 
+            id="bgCircle" 
+            cx="600" cy="600" r="500" 
+            fill="transparent" 
+            stroke="#303030" 
+            stroke-width="20" 
+            z-index="1"/>
+        <circle 
+            id="clockCircle" 
+            cx="600" cy="600" r="500" 
+            stroke="orange" 
+            fill="transparent" 
+            visibility="{{clockCircleVisibility}}" 
+            stroke-width="20" 
+            z-index="2"/>
+        <path 
+            id="clockPath" 
+            stroke-width="20" 
+            stroke="orange" 
+            stroke-linecap="round" 
+            fill="transparent" 
+            visibility="{{clockPathVisibility}}" 
+            d="{{clockPathArc}}" 
+            z-index="3"/>
+        <foreignObject x="000" y="260" width="1200" height="1000">
+            <div class="HtmlIsland">
+                <div id="nextName" class="exerciseText">
+                    {{exerciseText}}
+                </div>
+            <div id="mainTitle" class="mainTitle">
+                    {{exercise}}
+                </div>
+            <div id="timerText" class="timerText">
+                    {{timerText}}
+                </div>
+            <div id="exerciseInfo" class="exerciseInfo">
+                    {{exerciseInfoText}}
+                </div>
+            <div id="roundInfo" class="roundInfo">
+                    {{roundInfoText}}
+                </div>
+            </div>
+        </foreignObject>
+
+    </svg>
+    <div class="sapUiIMarginLarge">
+        <ui5-button 
+            id="startButton" 
+            icon="play" 
+            ?disabled={{this.startDisabled}} 
+            design="Positive" 
+            @click="{{startTimer}}">
+                Start
+            </ui5-button> 
+        <ui5-button 
+            id="stopButton" 
+            icon="stop" 
+            ?disabled={{this.stopDisabled}}
+            design="Negative"
+            @click="{{stopTimer}}">
+                Stop
+            </ui5-button>
+        <ui5-button 
+            id="resetButton"
+            icon="sys-back"
+            ?disabled={{this.resetDisabled}}
+            design="Neutral"
+            @click="{{resetTimer}}">
+                Reset
+        </ui5-button>
+    </div>
+</div>

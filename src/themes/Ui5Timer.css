@@ -1,0 +1,83 @@
+.root {
+	width: 100%;
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0;
+	background-color: var(--sapBackgroundColor);
+	border: none;
+	text-align: center;
+	line-height: 3rem;
+	font-size: 1.25rem;
+	user-select: none;
+	color: var(--sapTextColor);
+	font-size: var(--sapFontSize);
+	font-family: var(--sapFontFamily);
+}
+.HtmlIsland{
+    /*outline: solid 1px yellow;*/
+    outline-offset: -1px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.timerText{
+    /*outline: solid 1px yellow;*/
+	outline-offset: -1px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--sapField_TextColor);
+	font-size: 360px;
+	font-weight: 200;
+	text-align: center;
+	height:360px;
+	margin-right: 0px;
+	font-feature-settings: "tnum";
+  }   
+  .mainTitle{
+    /*outline: dashed 1px white;*/
+	color: var(--sapField_TextColor);
+	font-size: 72px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 100;
+	text-align: center;
+	height:120px;
+	margin-top: 0px;
+	margin-right: 0px;
+	font-feature-settings: "tnum";
+  }  
+  .exerciseInfo{
+	width: 100%;
+	color: var(--sapAvatar_10_TextColor);
+	font-size: 72px;
+	align-items: center;
+	justify-content: center;
+	font-weight: 100;
+	text-align: center;
+	height:100px;
+	margin-top: 40px;
+	margin-left: 0px;
+	font-feature-settings: "tnum";
+  }
+  .roundInfo{
+	width: 100%;
+	color: var(--sapAvatar_10_TextColor);
+	font-size: 72px;
+	align-items: center;
+	justify-content: center;
+	font-weight: 100;
+	text-align: center;
+	height:100px;
+	margin-top: 0px;
+	margin-right: 0px;
+	z-index: 3;
+	font-feature-settings: "tnum";
+  }
+  
+  

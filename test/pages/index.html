@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<title>my-component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+
+	<script data-ui5-config type="application/json">
+		{
+			"theme": "sap_horizon_dark",
+			"language": "EN"
+		}
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<script src="../../bundle.esm.js" type="module"></script>
+</head>
+
+<body>
+	<div class="app">
+		<ui5-timer 
+			id="myTimer"
+			exercise="Jumping Jacks"
+			duration="30"
+			vbox="0 0 1200 1200"
+			hrefx="test"
+			width="50px"
+			height="50px"
+		/>
+	</div>
+	<!--ui5-button id="btnStart" onClick="startTimer" icon="play">START</ui5-button>
+	<ui5-button id="btnStop" onClick="startTimer" icon="stop">STOP</ui5-button-->
+
+</body>
+</html>
