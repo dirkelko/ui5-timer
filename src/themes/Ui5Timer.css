@@ -48,11 +48,13 @@
 	font-weight: 100;
 	text-align: center;
 	height:120px;
+	width: 65%;
+	line-height: 4rem;
 	margin-top: 0px;
 	margin-right: 0px;
 	font-feature-settings: "tnum";
   }  
-  .exerciseInfo{
+  .subTitle{
 	width: 100%;
 	color: var(--sapAvatar_10_TextColor);
 	font-size: 72px;
@@ -65,7 +67,7 @@
 	margin-left: 0px;
 	font-feature-settings: "tnum";
   }
-  .roundInfo{
+  .subSubTitle{
 	width: 100%;
 	color: var(--sapAvatar_10_TextColor);
 	font-size: 72px;

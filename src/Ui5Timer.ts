@@ -59,14 +59,14 @@ class UI5Timer extends UI5Element {
 	remTime: number = 30000;
 
 	@property({ defaultValue: "Duration" })
-	exercise!: string;
+	title!: string;
 	// duration!: number;
 	@property()
 	timerText!: string ;
-	@property({ defaultValue: "Exercise" })
-	exerciseInfo!: string;
-	@property({ defaultValue: "Round" })
-	roundInfo!: string;
+	@property({ defaultValue: "Sub Title" })
+	subTitle!: string;
+	@property({ defaultValue: "SubSub Title" })
+	subSubTitle!: string;
 	@property()
 	vbox!: string;
 	@property()
@@ -107,13 +107,12 @@ class UI5Timer extends UI5Element {
 	isRunning: boolean = false;
 	interval: Interval | null = null;
 
-	get exerciseInfoText() {
-		return "EXERCISE";
+	get subTitleText() {
+		return this.subTitle;
 	}
-
-	get roundInfoText() {
-		return "ROUND";
-	}
+	/* get subSubTitleText() {
+		return this.subSubTitle;
+	} */
 
 	stopTimer() {
 		if (this.isRunning) {
