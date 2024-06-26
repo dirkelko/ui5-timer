@@ -171,7 +171,7 @@ class UI5Timer extends UI5Element {
 				if (this.remTime <= 0) {
 					// bellTriple.play();
 					this.clockPathVisibility = "hidden";
-					this.isRunning = false;
+					this.stopTimer();
 					clearInterval(this.interval!);
 					this.fireEvent("timer-finished", { nextRound: 3, nextDuration: 44 });
 				}
