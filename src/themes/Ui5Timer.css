@@ -10,11 +10,14 @@
 	border: none;
 	text-align: center;
 	line-height: 3rem;
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 	user-select: none;
 	color: var(--sapTextColor);
 	font-size: var(--sapFontSize);
-	font-family: var(--sapFontFamily);
+	font-family: 'Inter', sans-serif; 
+}
+@supports (font-variation-settings: normal) {
+	:root { font-family: 'Inter var', sans-serif; }
 }
 .HtmlIsland{
     /*outline: solid 1px yellow;*/
@@ -49,8 +52,7 @@
 	text-align: center;
 	height:120px;
 	width: 65%;
-	line-height: 4rem;
-	margin-top: 0px;
+	margin-top: 40px;
 	margin-right: 0px;
 	font-feature-settings: "tnum";
   }  

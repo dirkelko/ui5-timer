@@ -1,6 +1,6 @@
 {
   "name": "ui5-timer",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "ui5": {
     "webComponentsPackage": true
   },
