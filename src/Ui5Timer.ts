@@ -74,7 +74,7 @@ class UI5Timer extends UI5Element {
 	@property()
 	bgCircleStroke: string = "var(--sapNeutralBackground)";
 	@property()
-	clockCircleStroke: string = "var(--sapCriticalElementColor)";
+	clockCircleStroke: string = "var(--sapLegendColor1)";
 	@property()
 	clockCircleVisibility: string = "visible";
 	@property()
