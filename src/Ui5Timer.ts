@@ -41,6 +41,8 @@ import UI5TimerCss from "./generated/themes/Ui5Timer.css";
 })
 
 @event("timer-finished", { detail: { nextRound: { type: Number }, nextDuration: { type: Number } } })
+@event("timer-start")
+@event("timer-stop")
 
 class UI5Timer extends UI5Element {
 	static i18nBundle: I18nBundle;
@@ -70,9 +72,9 @@ class UI5Timer extends UI5Element {
 	@property()
 	vbox!: string;
 	@property()
-	bgCircleStroke: string = "#303030";
+	bgCircleStroke: string = "var(--sapNeutralBackground)";
 	@property()
-	clockCircleStroke: string = "orange";
+	clockCircleStroke: string = "var(--sapCriticalElementColor)";
 	@property()
 	clockCircleVisibility: string = "visible";
 	@property()
@@ -121,6 +123,7 @@ class UI5Timer extends UI5Element {
 			this.startDisabled = false;
 			this.stopDisabled = true;
 			this.resetDisabled = false;
+			this.fireEvent("timer-stop");
 			// this.timerText = "";
 			// this.timerText = this.timerString(this.remTime);
 		}
@@ -153,6 +156,7 @@ class UI5Timer extends UI5Element {
 			this.startDisabled = true;
 			this.stopDisabled = false;
 			this.resetDisabled = true;
+			this.fireEvent("timer-start");
 
 			this.interval = setInterval(() => {
 				this.remTime = endTime - Date.now();
