@@ -60,21 +60,21 @@ class UI5Timer extends UI5Element {
 	// remaining time in milliseconds
 	remTime: number = 30000;
 
-	@property({ defaultValue: "Duration" })
+	@property()
 	title!: string;
 	// duration!: number;
 	@property()
 	timerText!: string ;
-	@property({ defaultValue: "Sub Title" })
+	@property()
 	subTitle!: string;
-	@property({ defaultValue: "SubSub Title" })
+	@property()
 	subSubTitle!: string;
 	@property()
 	vbox!: string;
 	@property()
 	bgCircleStroke: string = "var(--sapNeutralBackground)";
 	@property()
-	clockCircleStroke: string = "var(--sapLegendColor1)";
+	clockCircleStroke: string = "var(--sapLegendColor2)";
 	@property()
 	clockCircleVisibility: string = "visible";
 	@property()
@@ -118,6 +118,7 @@ class UI5Timer extends UI5Element {
 
 	stopTimer() {
 		if (this.isRunning) {
+			// test comment
 			clearInterval(this.interval!);
 			this.isRunning = false;
 			this.startDisabled = false;
