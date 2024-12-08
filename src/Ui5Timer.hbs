@@ -1,5 +1,5 @@
 <div class="root" >
-    <svg id="svgArea" class="svgArea" viewBox="{{vbox}}">
+    <svg id="svgArea" class="svgArea" viewBox="0 0 1200 1200">
         <circle 
             id="bgCircle" 
             cx="600" cy="600" r="500" 
@@ -10,7 +10,7 @@
         <circle 
             id="clockCircle" 
             cx="600" cy="600" r="500" 
-            stroke="var(--sapLegendColor1)" 
+            stroke="{{clockCircleStroke}}" 
             fill="transparent" 
             visibility="{{clockCircleVisibility}}" 
             stroke-width="20" 
@@ -18,7 +18,7 @@
         <path 
             id="clockPath" 
             stroke-width="20" 
-            stroke="var(--sapLegendColor1)" 
+            stroke="{{clockCircleStroke}}" 
             stroke-linecap="round" 
             fill="transparent" 
             visibility="{{clockPathVisibility}}" 
@@ -32,11 +32,11 @@
             <div id="mainTitle" class="mainTitle">
                     {{title}}
                 </div>
-            <div id="timerText" class="timerText">
+            <div id="timerTextId" class="timerTextClass">
                     {{timerText}}
                 </div>
             <div id="subTitle" class="subTitle">
-                    {{subTitleText}}
+                    {{subTitle}}
                 </div>
             <div id="subSubTitle" class="subSubTitle">
                     {{subSubTitle}}

@@ -1,6 +1,6 @@
 {
   "name": "ui5-timer",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "ui5": {
     "webComponentsPackage": true
   },
@@ -33,6 +33,6 @@
     "typescript": "^5.6.3"
   },
   "files": [
-    "dist"
+    "./*"
   ]
 }

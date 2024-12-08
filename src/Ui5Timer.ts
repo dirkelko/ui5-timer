@@ -40,8 +40,25 @@ import UI5TimerCss from "./generated/themes/Ui5Timer.css";
 	],
 })
 
+/**
+ * Fired when the timer is finished
+ *
+ * @public
+ */
 @event("timer-finished", { detail: { nextRound: { type: Number }, nextDuration: { type: Number } } })
+
+/**
+ * Fired when the start button is clicked and the timer starts
+ *
+ * @public
+ */
 @event("timer-start")
+
+/**
+ * Fired when the stop button is clicked and the timer stops
+ *
+ * @public
+ */
 @event("timer-stop")
 
 class UI5Timer extends UI5Element {
@@ -60,43 +77,104 @@ class UI5Timer extends UI5Element {
 	// remaining time in milliseconds
 	remTime: number = 30000;
 
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	title!: string;
 	// duration!: number;
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	timerText!: string ;
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	subTitle!: string;
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	subSubTitle!: string;
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	vbox!: string;
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	bgCircleStroke: string = "var(--sapNeutralBackground)";
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	clockCircleStroke: string = "var(--sapLegendColor2)";
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	clockCircleVisibility: string = "visible";
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	clockPathStroke: string = "transparent";
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: String })
 	clockPathVisibility: string = "visible";
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
 	@property({ noAttribute: true })
 	clockPathArc: string = "M 600 100 A 500 500 0 1 0 600 100";
 
-	@property()
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
+	@property({ type: Number })
 	set duration(value: number) {
 		// console.log("set Duration: " + value);
 		this.Dur = value;
 		this.remTime = Number(value) * 1000;
 		this.timerText = this.timerString(this.remTime);
+		this.resetTimer();
 	}
 
 	get duration() {
 		return this.Dur;
 	}
 
-	Dur: number = 30;
+	private Dur: number = 30;
 
 	@property({ type: Boolean, noAttribute: true })
 	startDisabled!: boolean;
@@ -109,13 +187,15 @@ class UI5Timer extends UI5Element {
 	isRunning: boolean = false;
 	interval: Interval | null = null;
 
-	get subTitleText() {
-		return this.subTitle;
-	}
 	/* get subSubTitleText() {
 		return this.subSubTitle;
 	} */
 
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
 	stopTimer() {
 		if (this.isRunning) {
 			// test comment
@@ -130,6 +210,11 @@ class UI5Timer extends UI5Element {
 		}
 	}
 
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
 	resetTimer() {
 		if (!this.isRunning) {
 			this.remTime = Number(this.duration) * 1000;
@@ -142,6 +227,11 @@ class UI5Timer extends UI5Element {
 		}
 	}
 
+	/**
+	 * DESCRIPTION
+	 *
+	 * @public
+	 */
 	startTimer() {
 		if (!this.isRunning) {
 			const r = 500;
@@ -149,6 +239,7 @@ class UI5Timer extends UI5Element {
 			const mY = 100;
 			let lastRemTime = "";
 			const milliSeconds = this.duration * 1000;
+			// console.log(`Timer: ${milliSeconds}`);
 			const dt = 50; // timer intervall for clock path
 			const endTime = Date.now() + this.remTime;
 			this.clockCircleVisibility = "hidden";
@@ -162,9 +253,8 @@ class UI5Timer extends UI5Element {
 			this.interval = setInterval(() => {
 				this.remTime = endTime - Date.now();
 				if (lastRemTime !== this.timerString(this.remTime)) {
-					this.timerText = this.timerString(this.remTime);
 					lastRemTime = this.timerString(this.remTime);
-					// console.log(this.timerText);
+					this.timerText = lastRemTime;
 				}
 				const alpha = ((milliSeconds - this.remTime) / milliSeconds) * 2 * Math.PI;
 				const dx = r * Math.sin(alpha);
@@ -189,6 +279,8 @@ class UI5Timer extends UI5Element {
 		this.startDisabled = false;
 		this.stopDisabled = true;
 		this.resetDisabled = true;
+		// this.remTime = Number(this.duration) * 1000;
+		// this.timerText = this.timerString(this.remTime);
 	}
 
 	onExitDOM(): void {
@@ -199,15 +291,6 @@ class UI5Timer extends UI5Element {
 	}
 
 	onBeforeRendering(): void {
-		// console.log("Timer: onBeforeRendering");
-		/* if (!this.isRunning) {
-			this.remTime = Number(this.duration) * 1000;
-			this.timerText = this.timerString(this.remTime);
-		} */
-		/* this.remTime = Number(this.duration) * 1000;
-		this.timerText = this.timerString(this.remTime);
-		this.startButtonDisabled = false;
-		this.stopButtonDisabled = false; */
 	}
 
 	// helper function to format time

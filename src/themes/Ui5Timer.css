@@ -28,7 +28,7 @@
     align-items: center;
     justify-content: center;
 }
-.timerText{
+.timerTextClass{
     /*outline: solid 1px yellow;*/
 	outline-offset: -1px;
 	display: flex;
